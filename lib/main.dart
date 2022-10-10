@@ -61,6 +61,7 @@ class _PremiumTileSliderState extends State<PremiumTileSlider> {
 
   @override
   Widget build(BuildContext context) {
+    final currentVal = _pageController.hasClients ? _pageController.page ?? 0 : 0.0;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bug'),
@@ -77,7 +78,7 @@ class _PremiumTileSliderState extends State<PremiumTileSlider> {
                     itemBuilder: (context, index) {
                       return _animateWidget(
                           tilePosition: index,
-                          currentPosition: _pageController.position.hasPixels ? _pageController.page ?? 0 : 0,
+                          currentPosition: currentVal,
                           child: Container(
                             width: MediaQuery.of(context).size.width,
                             height: 200,
